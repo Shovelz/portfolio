@@ -5,12 +5,13 @@
 
 @font-face {
   font-family: 'W95FA';
-  src: url('/fonts/w95fa.woff2') format('woff2'),
-       url('/fonts/w95fa.woff') format('woff'),
-       url('/fonts/W95FA.otf') format('opentype');
+  src: url('./fonts/w95fa.woff2') format('woff2'),
+       url('./fonts/w95fa.woff') format('woff'),
+       url('./fonts/W95FA.otf') format('opentype');
   font-weight: normal;
   font-style: normal;
 }
+
 
 /* Windows 95 selection effect */
 .win95-selected .win95-icon {
