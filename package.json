@@ -4,8 +4,8 @@
   "description": "",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev" : "npx @tailwindcss/cli -i ./input.css -o ./output.css --watch",
-    "build:css": "tailwindcss -i ./input.css -o ./output.css --minify",
+    "dev" : "npx @tailwindcss/cli -i ./src/input.css -o ./src/output.css --watch",
+    "build:css": "tailwindcss -i ./src/input.css -o ./src/output.css --minify",
     "start": "parcel src/index.html --dist-dir docs",
     "build": "parcel build src/index.html --dist-dir docs --public-url ./"
   },
