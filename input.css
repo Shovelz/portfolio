@@ -1,0 +1,165 @@
+@import "tailwindcss";
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: 'W95FA';
+  src: url('/fonts/w95fa.woff2') format('woff2'),
+       url('/fonts/w95fa.woff') format('woff'),
+       url('/fonts/W95FA.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+/* Windows 95 selection effect */
+.win95-selected .win95-icon {
+  @apply relative;
+}
+
+.win95-selected .win95-icon::before {
+  content: '';
+    @apply absolute inset-0 bg-[#000080] opacity-50 z-[1] border border-dotted border-white;
+
+}
+
+.win95-selected .win95-label {
+  @apply bg-[#000080] text-white;
+}
+
+.win95-selected {
+  @apply bg-[#000080] !text-white;
+}
+
+.win95-selected h1 {
+  @apply text-white;
+  color: white;
+}
+
+
+.font-win95 {
+  @apply [image-rendering:pixelated] font-['W95FA',sans-serif] [font-smooth:never] [--webkit-font-smoothing:none];
+}
+
+@keyframes spin-once {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.spin-once {
+  @apply animate-[spin-once_0.6s_forwards];
+}
+
+.pixel-art {
+  @apply [image-rendering:pixelated] [image-rendering:crisp-edges];
+}
+
+.win95-btn {
+  @apply bg-[#c0c0c0] border-2 border-white border-r-[#404040] border-b-[#404040]
+    shadow-[inset_1px_1px_0_#fff,inset_-1px_-1px_0_#404040]
+    font-['MS_Sans_Serif',Geneva,sans-serif] font-bold text-black select-none cursor-pointer transition-all duration-100 ease-in-out;
+}
+
+/* Pressed state */
+.win95-btn:active {
+  border-top-color: #404040;
+  border-left-color: #404040;
+  border-right-color: #fff;
+  border-bottom-color: #fff;
+  box-shadow:
+    inset 1px 1px 0 #404040,
+    inset -1px -1px 0 #fff;
+  transform: translate(1px, 1px);
+}
+/* Disabled state */
+.win95-btn:disabled {
+  background: #e0e0e0;
+  border-color: #a0a0a0;
+  color: #888;
+  cursor: default;
+  box-shadow: none;
+}
+
+@keyframes hoverUpDown {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px); /* move up by 10px */
+  }
+}
+
+.hover-up-down {
+  @apply animate-[hoverUpDown_3s_ease-in-out_infinite];
+}
+
+.hover-up-down-delayed {
+  @apply animate-[hoverUpDown_3s_ease-in-out_0.5s_infinite];
+}
+
+.hover-up-down-delayed2 {
+  @apply animate-[hoverUpDown_5s_ease-in-out_0.78s_infinite];
+}
+
+.win95-window {
+  @apply fixed top-1/2 left-1/2 p-3 bg-[#c0c0c0] border-2 border-white border-r-[#404040] border-b-[#404040]
+    font-['MS_Sans_Serif',Geneva,sans-serif] font-bold box-border
+    shadow-[inset_1px_1px_0_#fff,inset_-1px_-1px_0_#404040]
+    origin-center opacity-0 pointer-events-none scale-90
+    transition-opacity transition-transform duration-300 ease-in-out z-[1000] transform -translate-x-1/2 -translate-y-1/2;
+}
+
+.win95-window.show {
+  @apply opacity-100 pointer-events-auto scale-100;
+}
+
+.win95-window .titlebar {
+  @apply bg-[#000080] text-white px-2 py-1 font-bold select-none flex justify-between items-center cursor-default
+    border-2 border-white border-r-[#404040] border-b-[#404040] box-border;
+}
+
+.win95-window .content {
+  @apply bg-white text-black p-2 font-normal select-text border-2 border-white border-r-[#404040] border-b-[#404040]
+    box-border mt-2 text-[14px] leading-[1.4];
+}
+
+.content {
+  @apply w-full max-w-[900px] overflow-visible relative;
+}
+
+.slideshow {
+  @apply w-full h-full relative;
+}
+
+.slide {
+  @apply hidden relative w-full h-auto [object-fit:contain] transition-opacity duration-1000 ease-in-out;
+}
+
+.slide.active {
+  @apply z-[1] block;
+}
+
+.taskbar {
+  @apply bg-[#C0C0C0] border-t-2 border-white shadow-[inset_0_1px_#808080,inset_0_-1px_#fff];
+}
+
+.start-button {
+  @apply bg-gradient-to-b from-[#dfdfdf] to-[#c0c0c0] border-2 border-white border-t-[#fff] border-l-[#fff]
+    px-3 py-0.5 mx-1 flex items-center cursor-pointer;
+}
+
+.start-button img {
+  @apply w-5 h-5 mr-1.5;
+}
+
+.task-area {
+  @apply flex-grow flex pl-1;
+}
+
+.task {
+  @apply bg-[#dfdfdf] border-2 border-white mx-1 px-2 py-0.5 min-w-[100px] flex items-center justify-center;
+}
+
+.clock {
+  @apply px-[10px] border-l-2 border-[#808080];
+}
